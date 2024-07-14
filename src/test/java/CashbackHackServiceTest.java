@@ -5,11 +5,33 @@ import ru.netology.CashbackHackService;
 public class CashbackHackServiceTest {
 
     @Test
-    public void testCash () {
+    public void testCash() {
         CashbackHackService service = new CashbackHackService();
 
         int amount = 900;
         int expected = 100;
+        int actual = service.remain(amount);
+
+        Assert.assertEquals(actual, expected);
+    }
+
+    @Test
+    public void testCash0() {
+        CashbackHackService service = new CashbackHackService();
+
+        int amount = 0;
+        int expected = 1000;
+        int actual = service.remain(amount);
+
+        Assert.assertEquals(actual, expected);
+    }
+
+    @Test
+    public void testCash1000() {
+        CashbackHackService service = new CashbackHackService();
+
+        int amount = 1000;
+        int expected = 0;
         int actual = service.remain(amount);
 
         Assert.assertEquals(actual, expected);
